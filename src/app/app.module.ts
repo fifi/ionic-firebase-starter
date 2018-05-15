@@ -4,8 +4,13 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { Camera } from '@ionic-native/camera';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AuthProvider } from '../providers/auth/auth';
+import { EventProvider } from '../providers/event/event';
+import { ProfileProvider } from '../providers/profile/profile';
 
 @NgModule({
   declarations: [
@@ -22,9 +27,13 @@ import { HomePage } from '../pages/home/home';
     HomePage
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    EventProvider,
+    ProfileProvider
   ]
 })
 export class AppModule {}
